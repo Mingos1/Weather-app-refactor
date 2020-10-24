@@ -8,9 +8,7 @@ API response hits and is appended to document
 Repeat
 */
 
-import {
-    KEY
-} from './secret.js';
+import { KEY } from './secret.js';
 
 let userInput = document.querySelector('#user-input'),
     button = document.querySelector('#search-button'),
@@ -24,6 +22,7 @@ async function callAPI() {
     return await response.json();
 }
 
+// Calls API onclick
 button.addEventListener('click', function () {
     callAPI()
         .then(response => {
