@@ -12,7 +12,7 @@ Repeat
 
 let userInput = document.querySelector('#user-input'),
     button = document.querySelector('#search-button'),
-    place = "London",
+    timeNow = new Date(),
     mainBody = document.querySelector('main');
 
 // API call
@@ -24,6 +24,7 @@ async function callAPI() {
 
 // Calls API onclick
 button.addEventListener('click', function () {
+    event.preventDefault();
     callAPI()
         .then(response => {
             console.log(response)
@@ -39,10 +40,11 @@ function createMainElements(response) {
     removeInsertedElements(insertedContent);
 
     mainBody.insertAdjacentHTML('beforeend',
-        `<article class='inserted-content'>
+        `<article class='inserted-content section weather-card'>
             <h3 id='weather-condition'>${response.weather[0].main}</h3>
-            <h2 id='temperature'>${convertKelToFaren(response.main.temp)}</h2>
-            <h3 id='place-name'>${response.name}</h3>
+            <h2 id='temperature'>${convertKelToFaren(response.main.temp)}°F</h2>
+            <h3 id='place-name'>${response.name}, ${response.sys.country}</h3>
+            <h4 id='time'>Weather fetched at: ${timeNow}</h4>
         </article>
         `
     )
