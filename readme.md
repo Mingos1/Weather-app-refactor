@@ -5,7 +5,7 @@ Weather Query is project I built to help me better understand async/await, optim
 ## Access
 
 Use this [link](https://mingos1.github.io/Weather-app-refactor/) to access the live website. 
-Requires supplying your own OpenWeatherMap Key.
+
 
 ## Usage
 

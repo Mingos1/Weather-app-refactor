@@ -1,3 +1,5 @@
+import { KEY } from './dummy_secret.js';
+
 //const fetch = require('node-fetch');
 //import 'dotenv/config';
 
@@ -7,8 +9,6 @@ Button press leads to calling API
 API response hits and is appended to document
 Repeat
 */
-
-import { KEY } from './secret.js';
 
 let userInput = document.querySelector('#user-input'),
     button = document.querySelector('#search-button'),
