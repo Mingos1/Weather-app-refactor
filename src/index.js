@@ -55,7 +55,7 @@ function removeInsertedElements(insertedContent) {
     if(insertedContent) insertedContent.parentNode.removeChild(insertedContent); return;
 }
 
-//math
+// Temperature math
 function convertKelToFaren(number) {
     return Math.ceil((number - 273.15) * 9/5 + 32); 
 }
