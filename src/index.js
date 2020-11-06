@@ -30,12 +30,27 @@ button.addEventListener('click', function () {
             console.log(response)
             createMainElements(response)
         })
-        .catch(err => console.log(err.message))
+        .catch(err => {
+            console.log(err.message)
+            creatErrorElements(err)})
 })
+
+function creatErrorElements(response) {
+    let insertedContent = document.querySelector('.inserted-content');
+    removeInsertedElements(insertedContent);
+
+    mainBody.insertAdjacentHTML('beforeend',
+        `<article class='inserted-content section weather-card'>
+            <h2>${response.cod}</h2>
+            <h3>${response.message}</h3>
+        </article>
+        `
+    )
+}
+
 
 // Helper functions
 function createMainElements(response) {
-
     let insertedContent = document.querySelector('.inserted-content');
     removeInsertedElements(insertedContent);
 
