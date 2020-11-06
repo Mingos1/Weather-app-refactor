@@ -28,12 +28,13 @@ button.addEventListener('click', function () {
     callAPI()
         .then(response => {
             console.log(response)
+            //Error handler not finished - doesn't return a new element
+            if (response.cod === '404') creatErrorElements(err) 
             createMainElements(response)
         })
-        .catch(err => {
-            console.log(err.message)
-            creatErrorElements(err)})
-})
+        .catch(err => 
+            console.log(err.message))
+        })
 
 function creatErrorElements(response) {
     let insertedContent = document.querySelector('.inserted-content');
@@ -41,8 +42,8 @@ function creatErrorElements(response) {
 
     mainBody.insertAdjacentHTML('beforeend',
         `<article class='inserted-content section weather-card'>
-            <h2>${response.cod}</h2>
             <h3>${response.message}</h3>
+            <h2>${response.cod}</h2>
         </article>
         `
     )
